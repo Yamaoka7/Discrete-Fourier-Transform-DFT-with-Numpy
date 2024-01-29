@@ -1,0 +1,13 @@
+import numpy as np
+
+def discrete_fourier_transform(signal):
+    N = len(signal)
+    k = np.arange(N)
+    n = k.reshape((N, 1))
+    e = np.exp(-2j * np.pi * k * n / N)
+    return np.dot(e, signal)
+
+# Example usage: Compute DFT of a simple signal
+signal = np.array([1, 2, 1, -1])
+result_dft = discrete_fourier_transform(signal)
+print("DFT Result:", result_dft)
